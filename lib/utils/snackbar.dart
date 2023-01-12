@@ -7,21 +7,20 @@ class ShowSnackBar {
       required String title,
       required String message,
       ContentType? type}) {
-    final materialBanner = MaterialBanner(
-      elevation: 0,
+    final materialBanner = SnackBar(
+      elevation: 4,
+      duration: const Duration(seconds: 1),
       backgroundColor: Colors.transparent,
-      forceActionsBelow: true,
       content: AwesomeSnackbarContent(
         title: title,
         message: message,
         contentType: type ?? ContentType.success,
         inMaterialBanner: true,
       ),
-      actions: const [SizedBox.shrink()],
     );
 
     ScaffoldMessenger.of(context)
       ..hideCurrentMaterialBanner()
-      ..showMaterialBanner(materialBanner);
+      ..showSnackBar(materialBanner);
   }
 }

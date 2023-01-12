@@ -1,10 +1,9 @@
 import 'package:hive/hive.dart';
 
-
 part 'task_manager.g.dart';
 
 @HiveType(typeId: 0)
-class Task {
+class Task extends HiveObject {
   @HiveField(0)
   String? id;
 
@@ -24,7 +23,7 @@ class Task {
   final bool? isCompleted;
 
   Task({
-    this.id ,
+    this.id,
     this.isCompleted,
     required this.taskName,
     required this.taskDescription,

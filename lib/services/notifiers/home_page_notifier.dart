@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:procrasti_buddy/views/dashboard_page.dart';
+import 'package:procrasti_buddy/views/menu/menupage.dart';
 
-import '../../routes/route_names.dart';
+import '../../views/ai_assistant.dart';
 
 class HomePageNotifier extends ChangeNotifier {
+  final List<Widget> screens = [
+    const DashBoardPage(),
+    const ProcrastiBuddyAIPage(),
+    const MenuPage(),
+  ];
+
   int _currentNavigatonIndex = 0;
 
   int get currentNavigatonIndex => _currentNavigatonIndex;

@@ -8,9 +8,9 @@ class RouteNames {
   static const appointmentsPage = '/appointmentsPage';
   static const addAppointment = '/addAppointment';
   static const appointmentPage = '/appointmentPage';
-  static const addJournal = '/addNote';
   static const notesJournalPage = '/journalPage';
   static const pomodoroPage = '/pomodoroPage';
   static const shoppingPage = '/shoppingPage';
   static const billsAndPaymentPage = '/billsAndPaymentPage';
+  static const tipsAndTrickPage = '/tipsAndTrickPage';
 }

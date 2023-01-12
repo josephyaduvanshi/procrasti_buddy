@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:procrasti_buddy/database/task_manager/task_manager.dart';
 import 'package:provider/provider.dart';
 
-import '../database/task_manager/task_service.dart';
+import '../services/notifiers/task_service.dart';
 
 class UpdateTaskScreen extends StatefulWidget {
   final Task task;

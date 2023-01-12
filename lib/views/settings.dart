@@ -11,13 +11,6 @@ class SettingsPage extends StatelessWidget {
       appBar: AppBar(
         elevation: 5,
         title: "Settings".text.make(),
-        leading: IconButton(
-            splashColor: Colors.blue,
-            splashRadius: 18.0,
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: const Icon(Icons.arrow_back_ios_new)),
       ),
       body: SafeArea(
         child: ListView(
