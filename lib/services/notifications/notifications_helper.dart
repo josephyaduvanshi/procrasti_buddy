@@ -17,17 +17,16 @@ class NotificationApi {
     requestAlertPermission: true,
     // onDidReceiveLocalNotification: _onDidReceiveLocalNotification,
   );
-
 //NOTE initialize notification
   static Future init() async {
     notifications = FlutterLocalNotificationsPlugin();
     initializationSettingsAndroid =
-        const AndroidInitializationSettings("@mipmap/launcher_icon");
+        const AndroidInitializationSettings("@mipmap/ic_launcher");
     initializationSettings = InitializationSettings(
       android: NotificationApi.initializationSettingsAndroid,
       iOS: initIOSSettings,
     );
-
+    requestermission();
     tz.initializeTimeZones();
   }
 
@@ -49,6 +48,17 @@ class NotificationApi {
     notifications.show(
         id, title, body, await _notificationDetails("channel Id"),
         payload: payload);
+  }
+
+  static Future<void> requestermission() async {
+    await notifications
+        .resolvePlatformSpecificImplementation<
+            IOSFlutterLocalNotificationsPlugin>()
+        ?.requestPermissions(alert: true, badge: true, sound: true);
+    await notifications
+        .resolvePlatformSpecificImplementation<
+            AndroidFlutterLocalNotificationsPlugin>()
+        ?.requestPermission();
   }
 
   static Future scheduleNotification(

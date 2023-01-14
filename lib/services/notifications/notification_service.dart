@@ -20,7 +20,7 @@ class NotificationService {
     );
 
     const AndroidInitializationSettings initAndroidSettings =
-        AndroidInitializationSettings("@mipmap/launcher_icon");
+        AndroidInitializationSettings("app_icon");
 
     const InitializationSettings initializationSettings =
         InitializationSettings(
@@ -66,12 +66,7 @@ class NotificationService {
     }
   }
 
-  Future<void> requestIOSPermission() async {
-    await _flutterLocalNotificationsPlugin
-        .resolvePlatformSpecificImplementation<
-            IOSFlutterLocalNotificationsPlugin>()
-        ?.requestPermissions(alert: true, badge: true, sound: true);
-  }
+
 
   tz.TZDateTime _convertTime(String time, String date) {
     DateTime date = DateFormat.jm().parse(time);

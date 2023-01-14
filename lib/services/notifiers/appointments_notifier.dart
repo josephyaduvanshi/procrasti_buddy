@@ -78,20 +78,24 @@ class AppointmentsNotifier with ChangeNotifier {
   }
 
   dateTimePicker(BuildContext context) async {
-    await showDatePicker(
-      context: context,
-      initialDate: DateTime.now(),
-      firstDate: DateTime.now(),
-      lastDate: DateTime.now(),
-    ).then((value) {
-      if (value != null) {
-        String formattedDate = DateFormat('yyyy-MM-dd').format(value);
-        _date = formattedDate;
-        notifyListeners();
-      } else {}
-    });
-    // ignore: use_build_context_synchronously
-    await timePicker(context);
+    try {
+      await showDatePicker(
+        context: context,
+        initialDate: DateTime.now(),
+        firstDate: DateTime.now(),
+        lastDate: DateTime(2100),
+      ).then((value) {
+        if (value != null) {
+          String formattedDate = DateFormat('yyyy-MM-dd').format(value);
+          _date = formattedDate;
+          notifyListeners();
+        } else {}
+      });
+      // ignore: use_build_context_synchronously
+      await timePicker(context);
+    } catch (e) {
+      print(e);
+    }
   }
 
   timePicker(BuildContext context) async {

@@ -9,9 +9,13 @@ class Utilities {
   static DateTime getDateTime({
     required String dateTimeString,
   }) {
-    DateFormat dateFormat = DateFormat("yyyy-MM-dd hh:mm a");
-    DateTime dateTimeObject = dateFormat.parse(dateTimeString);
-    return dateTimeObject;
+    try {
+      DateFormat dateFormat = DateFormat("yyyy-MM-dd hh:mm a");
+      DateTime dateTimeObject = dateFormat.parse(dateTimeString);
+      return dateTimeObject;
+    } catch (e) {
+      return DateTime.now();
+    }
   }
 }
 

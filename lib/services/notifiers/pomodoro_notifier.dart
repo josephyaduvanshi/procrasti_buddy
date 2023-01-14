@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:developer';
+import 'dart:math';
 
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:flutter/material.dart';
@@ -30,14 +31,14 @@ class PomoDoroModelNotifier extends ChangeNotifier {
 
   void triggerStart() async {
     if (sessionController.isRestarted) {
-      log("TRIGGGGERED");
+      print("TRIGGGGERED");
       sessionController.restart(duration: sessionTime);
       clockButton = Constants.pauseIcon;
       text = 'Pause';
       notifyListeners();
     }
     if (!sessionController.isStarted) {
-      log("Session Start Fresh");
+      print("Session Start Fresh");
       sessionController.start();
       clockButton = Constants.pauseIcon;
       text = 'Pause';
@@ -57,12 +58,12 @@ class PomoDoroModelNotifier extends ChangeNotifier {
 
   void onCompleteSession() {
     if (sessionController.isRestarted) {
-      log("Session Restarted OnComplete Triger");
+      print("Session Restarted OnComplete Triger");
       // abortPomodoro();
       triggerStart();
       notifyListeners();
     } else if (sessionController.isStarted) {
-      log("Else Normal");
+      print("Else Normal");
       clockButton = Constants.playIcon;
       text = 'Start';
       isClockStarted = false;
@@ -106,6 +107,7 @@ class PomoDoroModelNotifier extends ChangeNotifier {
     );
     await _pomoDoroBox.add(pomoDoroModel);
     await NotificationApi.shownotification(
+      id: Random().nextInt(1000),
       title: "Pomodoro Completed",
       body: "You have completed a pomodoro session",
     );

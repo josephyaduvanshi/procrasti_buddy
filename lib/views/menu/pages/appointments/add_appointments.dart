@@ -125,8 +125,8 @@ class AddAppointmentsWidget extends StatelessWidget {
                 ),
               ).px(12).py(12).pOnly(top: 10),
               "Priority".text.bold.xl.make().pOnly(top: 10).px(12),
-              ChangeNotifierProvider(
-                create: (context) => appointmentsNotifier,
+              ChangeNotifierProvider.value(
+                value: appointmentsNotifier,
                 child: Consumer(
                   builder:
                       (context, AppointmentsNotifier appointmentsNotifier, _) =>

@@ -30,7 +30,7 @@ class HttpHelper {
     required String promptHuman,
   }) async {
     try {
-      String apiKey = Constants.openApiKey;
+      String apiKey = Constants.openApiKey.toString();
       String url = "https://api.openai.com/v1/completions";
       Map<String, String> headers = {
         'Content-Type': 'application/json',

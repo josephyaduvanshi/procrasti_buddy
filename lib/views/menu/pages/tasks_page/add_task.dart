@@ -119,8 +119,8 @@ class AddTaskW extends StatelessWidget {
                 ),
               ).px(12).py(12).pOnly(top: 10),
               "Category".text.bold.xl.make().pOnly(top: 10).px(12),
-              ChangeNotifierProvider(
-                create: (context) => taskNotifier,
+              ChangeNotifierProvider.value(
+                value: taskNotifier,
                 child: Consumer(
                     builder: (context, TaskCRUDNotifer taskCRUDNotifer, child) {
                   return ChoiceWidgetCategories(
