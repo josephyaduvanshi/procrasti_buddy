@@ -1,57 +1,77 @@
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:timezone/data/latest.dart' as tz;
+import 'package:timezone/timezone.dart' as tz;
 
-class NotificationManager {
-  // Initialize the plugin
-  final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+class NotificationApi {
+  static FlutterLocalNotificationsPlugin notifications =
       FlutterLocalNotificationsPlugin();
+  static String? selectedNotificationPayload;
 
-  // Set up the plugin
-  Future<void> initialize() async {
-    await flutterLocalNotificationsPlugin.initialize(
-      const InitializationSettings(
-        android: AndroidInitializationSettings('app_icon'),
-        iOS: DarwinInitializationSettings(),
-      ),
+  static late AndroidInitializationSettings initializationSettingsAndroid;
+  static late InitializationSettings initializationSettings;
+
+  static const IOSInitializationSettings initIOSSettings =
+      IOSInitializationSettings(
+    requestSoundPermission: true,
+    requestBadgePermission: true,
+    requestAlertPermission: true,
+    // onDidReceiveLocalNotification: _onDidReceiveLocalNotification,
+  );
+
+//NOTE initialize notification
+  static Future init() async {
+    notifications = FlutterLocalNotificationsPlugin();
+    initializationSettingsAndroid =
+        const AndroidInitializationSettings("@mipmap/launcher_icon");
+    initializationSettings = InitializationSettings(
+      android: NotificationApi.initializationSettingsAndroid,
+      iOS: initIOSSettings,
     );
+
+    tz.initializeTimeZones();
   }
 
-  // Schedule a notification
-  Future<void> scheduleNotification(String title, String body, final dateTime,
-      String channelId, String channelName, String channelDescription) async {
-    NotificationDetails notificationDetails = NotificationDetails(
+  static Future _notificationDetails(channelId) async {
+    return NotificationDetails(
       android: AndroidNotificationDetails(
-        channelId,
-        channelName,
-        channelDescription: channelDescription,
+        //NOTE each task has channel  so channel id is the task id
+        '$channelId',
+        '$channelId Notifications',
+        channelDescription: '$channelId Description',
         importance: Importance.max,
         priority: Priority.high,
       ),
-      iOS: const DarwinNotificationDetails(),
-    );
-    await flutterLocalNotificationsPlugin.zonedSchedule(
-      0,
-      title,
-      body,
-      dateTime,
-      notificationDetails,
-      androidAllowWhileIdle: true,
-      uiLocalNotificationDateInterpretation:
-          UILocalNotificationDateInterpretation.absoluteTime,
     );
   }
 
-  // Delete a notification
-  Future<void> deleteNotification(int id) async {
-    await flutterLocalNotificationsPlugin.cancel(id);
+  static Future shownotification(
+      {int id = 0, String? title, String? body, String? payload}) async {
+    notifications.show(
+        id, title, body, await _notificationDetails("channel Id"),
+        payload: payload);
   }
 
-  // Disable a notification channel
-  Future<void> disableNotificationChannel(String channelId) async {
-    await flutterLocalNotificationsPlugin.cancelAll();
-  }
-
-  // Get a list of scheduled notifications
-  Future<List<PendingNotificationRequest>> getScheduledNotifications() async {
-    return await flutterLocalNotificationsPlugin.pendingNotificationRequests();
+  static Future scheduleNotification(
+      {required DateTime scheduleDate,
+      taskChannelId,
+      required String desc,
+      required String title,
+      required String time}) async {
+    notifications = FlutterLocalNotificationsPlugin();
+    await notifications.initialize(initializationSettings,
+        onSelectNotification: (String? payload) async {
+      if (payload != null) {}
+      //
+    });
+    await notifications.zonedSchedule(
+        taskChannelId ?? 0,
+        title,
+        desc,
+        tz.TZDateTime.from(scheduleDate, tz.local),
+        await _notificationDetails(taskChannelId),
+        androidAllowWhileIdle: true,
+        uiLocalNotificationDateInterpretation:
+            UILocalNotificationDateInterpretation.absoluteTime,
+        matchDateTimeComponents: DateTimeComponents.time);
   }
 }

@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:hive_flutter/hive_flutter.dart';
-import 'package:procrasti_buddy/services/notifiers/home_page_notifier.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:procrasti_buddy/database/database_config.dart';
 import 'package:provider/provider.dart';
 
-import 'database/task_manager/task_manager.dart';
-import 'database/task_manager/task_service.dart';
 import 'routes/route_deeplink.dart';
 import 'routes/route_names.dart';
+import 'services/notifications/notifications_helper.dart';
 import 'services/notifiers/theme_notifiers.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  Hive.registerAdapter(TaskAdapter());
-  await Hive.initFlutter();
-  await Hive.openBox<Task>('tasks');
+  await DatabaseConfig.initializeDatabase();
+  await dotenv.load(fileName: ".env");
+  await NotificationApi.init();
   ThemeNotifier themeNotifier = ThemeNotifier();
   await themeNotifier.loadTheme();
   runApp(
@@ -21,10 +20,6 @@ void main() async {
       providers: [
         ChangeNotifierProvider<ThemeNotifier>.value(
           value: themeNotifier,
-          child: const ProcrastiBuddyApp(),
-        ),
-        ChangeNotifierProvider<TaskCRUDNotifer>(
-          create: (_) => TaskCRUDNotifer(),
           child: const ProcrastiBuddyApp(),
         ),
       ],

@@ -5,15 +5,15 @@ class MyThemeData {
     useMaterial3: true,
     colorScheme: ColorScheme.dark(
       primary: Colors.blue.shade100,
-      secondary: Colors.purple.shade300,
+      secondary: Colors.purple.shade100,
       onPrimary: Colors.white,
-      onSecondary: Colors.black,
+      onSecondary: const Color.fromARGB(255, 25, 19, 27),
       onBackground: Colors.white,
       onError: Colors.redAccent,
       onSurface: Colors.white,
       background: const Color.fromARGB(255, 22, 22, 22),
       error: Colors.red,
-      surface: Colors.black,
+      surface: const Color.fromARGB(255, 24, 22, 28),
     ),
     visualDensity: VisualDensity.adaptivePlatformDensity,
     buttonTheme: ButtonThemeData(
