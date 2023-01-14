@@ -52,7 +52,7 @@ class DashBoardPage extends StatelessWidget {
                   title: "There are no appointments for today",
                   imageAsset: Assets.images.noData,
                   onPressed: () =>
-                      Navigator.pushNamed(context, RouteNames.addAppointment),
+                      Navigator.pushNamed(context, RouteNames.appointmentPage),
                 ),
                 child: AppointmentsListWidgetDashBoard(
                   appointmentNotifier: appointmentsNotifier,
