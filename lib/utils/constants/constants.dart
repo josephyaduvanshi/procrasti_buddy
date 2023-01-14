@@ -1,7 +1,9 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:procrasti_buddy/gen/assets.gen.dart';
 
 class Constants {
   static const IconData playIcon = Icons.play_arrow;
@@ -12,6 +14,25 @@ class Constants {
     fontSize: 28,
     fontWeight: FontWeight.w600,
   );
+
+  static String openApiKey = dotenv.get("OPEN_API_KEY");
+
+  static List<String> categories = [
+    "Appointments",
+    "Tasks",
+    "Bills and Payments",
+    "Journal",
+    "Pomodoro Clock",
+    "Tips and Tricks",
+  ];
+  static List<String> imageList = [
+    Assets.images.appointment,
+    Assets.images.tasks,
+    Assets.images.buyForCash,
+    Assets.images.journal,
+    Assets.images.pomodoro,
+    Assets.images.dailyTasks,
+  ];
 
   static const Map<String, String> journalMoodType = {
     "Happy": "😊",

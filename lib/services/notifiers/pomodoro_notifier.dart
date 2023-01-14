@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:developer';
 
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
@@ -5,27 +6,29 @@ import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:procrasti_buddy/utils/constants/constants.dart';
 
-import '../../utils/dialogs.dart';
 import '../../database/pomodoro/pomodoro_model_hive.dart';
+import '../../utils/dialogs.dart';
+import '../notifications/notifications_helper.dart';
 
 class PomoDoroModelNotifier extends ChangeNotifier {
   late Box<PomodoroHiveModel> _pomoDoroBox;
   final BuildContext context;
   CountDownController sessionController = CountDownController();
   bool isClockStarted = false;
-  int sessionTime = 25 * 60;
-  int shortBreakTime = 5 * 60;
+  int sessionTime = 25;
+  int shortBreakTime = 5;
   DateTime date = DateTime.now();
   IconData clockButton = Constants.playIcon;
   String text = 'Start';
   bool isBreak = false;
+  bool isStarted = false;
 
   void abortPomodoro() {
     sessionController.reset();
     notifyListeners();
   }
 
-  void triggerStart() {
+  void triggerStart() async {
     if (sessionController.isRestarted) {
       log("TRIGGGGERED");
       sessionController.restart(duration: sessionTime);
@@ -68,9 +71,15 @@ class PomoDoroModelNotifier extends ChangeNotifier {
           context: context,
           onTapYes: () {
             isBreak = true;
-            sessionController.restart(duration: shortBreakTime);
+            sessionController.restart(duration: shortBreakTime * 60);
+            Timer timer =
+                Timer(Duration(seconds: shortBreakTime * 60), () async {
+              await NotificationApi.shownotification(
+                  title: "Break Completed", body: "Time to get back to work");
+            });
             notifyListeners();
             Navigator.pop(context);
+            timer.cancel();
           },
           onTapNo: () {
             isBreak = false;
@@ -96,6 +105,10 @@ class PomoDoroModelNotifier extends ChangeNotifier {
       date: date,
     );
     await _pomoDoroBox.add(pomoDoroModel);
+    await NotificationApi.shownotification(
+      title: "Pomodoro Completed",
+      body: "You have completed a pomodoro session",
+    );
     notifyListeners();
   }
 

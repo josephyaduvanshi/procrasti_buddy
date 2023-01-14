@@ -8,7 +8,7 @@ part of 'appointment_model.dart';
 
 class AppointmentModelAdapter extends TypeAdapter<AppointmentModel> {
   @override
-  final int typeId = 0;
+  final int typeId = 4;
 
   @override
   AppointmentModel read(BinaryReader reader) {
@@ -17,20 +17,21 @@ class AppointmentModelAdapter extends TypeAdapter<AppointmentModel> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return AppointmentModel(
-      key: fields[0] as String,
+      id: fields[0] as String?,
+      isCompleted: fields[5] as bool?,
       appointmentName: fields[1] as String,
       appointmentDescription: fields[2] as String,
       appointmentDueDate: fields[3] as DateTime,
-      appointmentPriority: fields[4] as int,
+      appointmentPriority: fields[4] as String,
     );
   }
 
   @override
   void write(BinaryWriter writer, AppointmentModel obj) {
     writer
-      ..writeByte(5)
+      ..writeByte(6)
       ..writeByte(0)
-      ..write(obj.key)
+      ..write(obj.id)
       ..writeByte(1)
       ..write(obj.appointmentName)
       ..writeByte(2)
@@ -38,7 +39,9 @@ class AppointmentModelAdapter extends TypeAdapter<AppointmentModel> {
       ..writeByte(3)
       ..write(obj.appointmentDueDate)
       ..writeByte(4)
-      ..write(obj.appointmentPriority);
+      ..write(obj.appointmentPriority)
+      ..writeByte(5)
+      ..write(obj.isCompleted);
   }
 
   @override

@@ -27,8 +27,17 @@ class $AssetsImagesGen {
   /// File path: assets/images/journal.svg
   String get journal => 'assets/images/journal.svg';
 
+  /// File path: assets/images/no_data.svg
+  String get noData => 'assets/images/no_data.svg';
+
+  /// File path: assets/images/notes.svg
+  String get notes => 'assets/images/notes.svg';
+
   /// File path: assets/images/pomodoro.svg
   String get pomodoro => 'assets/images/pomodoro.svg';
+
+  /// File path: assets/images/pomodoro_empty.svg
+  String get pomodoroEmpty => 'assets/images/pomodoro_empty.svg';
 
   /// File path: assets/images/shopping-basket.svg
   String get shoppingBasket => 'assets/images/shopping-basket.svg';
@@ -43,7 +52,10 @@ class $AssetsImagesGen {
         buyForCash,
         dailyTasks,
         journal,
+        noData,
+        notes,
         pomodoro,
+        pomodoroEmpty,
         shoppingBasket,
         tasks
       ];
@@ -51,6 +63,9 @@ class $AssetsImagesGen {
 
 class $AssetsLottieGen {
   const $AssetsLottieGen();
+
+  /// File path: assets/lottie/bot_ai.json
+  String get botAi => 'assets/lottie/bot_ai.json';
 
   /// File path: assets/lottie/empty.json
   String get empty => 'assets/lottie/empty.json';
@@ -62,7 +77,7 @@ class $AssetsLottieGen {
   String get tricks => 'assets/lottie/tricks.json';
 
   /// List of all assets
-  List<String> get values => [empty, loading, tricks];
+  List<String> get values => [botAi, empty, loading, tricks];
 }
 
 class Assets {

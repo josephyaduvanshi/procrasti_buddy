@@ -6,8 +6,8 @@ import 'package:procrasti_buddy/utils/snackbar.dart';
 
 class JournalNotifier extends ChangeNotifier {
   late Box<JournalModel> _journalBox;
-  bool choiceChipHappy = false;
   final BuildContext context;
+  bool choiceChipHappy = false;
   bool choiceChipSad = false;
   bool choiceChipAnxious = false;
   bool choiceChipAngry = false;

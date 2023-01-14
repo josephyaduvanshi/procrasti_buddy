@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:procrasti_buddy/views/dashboard_page.dart';
+import 'package:procrasti_buddy/views/dashboard/dashboard_page.dart';
 import 'package:procrasti_buddy/views/menu/menupage.dart';
 
-import '../../views/ai_assistant.dart';
+import '../../views/ai_assistant/ai_assistant.dart';
 
 class HomePageNotifier extends ChangeNotifier {
   final List<Widget> screens = [

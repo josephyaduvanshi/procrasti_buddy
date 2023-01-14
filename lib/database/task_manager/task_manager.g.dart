@@ -6,40 +6,40 @@ part of 'task_manager.dart';
 // TypeAdapterGenerator
 // **************************************************************************
 
-class TaskAdapter extends TypeAdapter<Task> {
+class TaskModelAdapter extends TypeAdapter<TaskModel> {
   @override
   final int typeId = 0;
 
   @override
-  Task read(BinaryReader reader) {
+  TaskModel read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return Task(
-      id: fields[0] as String?,
+    return TaskModel(
+      title: fields[1] as String,
       isCompleted: fields[5] as bool?,
-      taskName: fields[1] as String,
-      taskDescription: fields[2] as String,
-      taskDueDate: fields[3] as DateTime,
-      taskPriority: fields[4] as int,
+      type: fields[3] as String?,
+      id: fields[0] as String?,
+      description: fields[2] as String,
+      date: fields[4] as DateTime,
     );
   }
 
   @override
-  void write(BinaryWriter writer, Task obj) {
+  void write(BinaryWriter writer, TaskModel obj) {
     writer
       ..writeByte(6)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
-      ..write(obj.taskName)
+      ..write(obj.title)
       ..writeByte(2)
-      ..write(obj.taskDescription)
+      ..write(obj.description)
       ..writeByte(3)
-      ..write(obj.taskDueDate)
+      ..write(obj.type)
       ..writeByte(4)
-      ..write(obj.taskPriority)
+      ..write(obj.date)
       ..writeByte(5)
       ..write(obj.isCompleted);
   }
@@ -50,7 +50,7 @@ class TaskAdapter extends TypeAdapter<Task> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is TaskAdapter &&
+      other is TaskModelAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }

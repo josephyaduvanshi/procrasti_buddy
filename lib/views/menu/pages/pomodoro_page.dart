@@ -24,8 +24,12 @@ class PomodoroPage extends StatelessWidget {
                       await pomodoroNotifier.deleteAll();
                       pomodoroNotifier.resetPomodoro();
                     },
-                    icon: const Icon(Icons.refresh),
-                  ),
+                    icon: const Icon(
+                      Icons.delete,
+                      color: Colors.red,
+                    ),
+                  ).disabled(pomodoroNotifier.sessionController.isStarted ||
+                      pomodoroNotifier.sessionController.isRestarted),
                 ],
               ),
               body: Column(
@@ -41,7 +45,7 @@ class PomodoroPage extends StatelessWidget {
                         height: MediaQuery.of(context).size.height * 0.3,
                         width: MediaQuery.of(context).size.width * 0.3,
                         autoStart: false,
-                        duration: pomodoroNotifier.sessionTime,
+                        duration: pomodoroNotifier.sessionTime * 60,
                         isReverse: true,
                         textStyle: const TextStyle(
                           color: Colors.white,

@@ -1,37 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:procrasti_buddy/gen/assets.gen.dart';
 import 'package:procrasti_buddy/routes/route_names.dart';
+import 'package:procrasti_buddy/utils/constants/constants.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class MenuPage extends StatelessWidget {
   const MenuPage({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    List<String> categories = [
-      "Appointments",
-      "Tasks",
-      "Bills and Payments",
-      "Journal",
-      "Pomodoro Clock",
-      "Tips and Tricks",
-    ];
-    final List<String> imageList = [
-      Assets.images.appointment,
-      Assets.images.tasks,
-      Assets.images.buyForCash,
-      Assets.images.journal,
-      Assets.images.pomodoro,
-      Assets.images.dailyTasks,
-    ];
-
     return Scaffold(
       extendBody: true,
       body: Column(
         children: [
           Expanded(
             child: GridView.builder(
-              itemCount: categories.length,
+              itemCount: Constants.categories.length,
               scrollDirection: Axis.vertical,
               shrinkWrap: true,
               physics: const ClampingScrollPhysics(),
@@ -75,15 +58,12 @@ class MenuPage extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               SvgPicture.asset(
-                                imageList[index],
+                                Constants.imageList[index],
                                 fit: BoxFit.cover,
                                 width: 35,
                                 height: 35,
                               ),
-                              categories[index]
-                                  .text
-                                  .bold
-                                  .center
+                              Constants.categories[index].text.bold.center
                                   .scale(1)
                                   .maxLines(2)
                                   .make(),

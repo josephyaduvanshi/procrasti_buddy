@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:lottie/lottie.dart';
-import 'package:procrasti_buddy/gen/assets.gen.dart';
 import 'package:procrasti_buddy/services/notifiers/journal_notifier.dart';
+import 'package:procrasti_buddy/widgets/empty_tasks_journals_bills.dart';
 import 'package:procrasti_buddy/widgets/journal_card_widget.dart';
 import 'package:provider/provider.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -48,15 +47,17 @@ class JournalPage extends StatelessWidget {
             child: ListView(
               children: [
                 if (journalNotifier.journalList.isEmpty)
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      20.heightBox,
-                      Lottie.asset(Assets.lottie.empty),
-                      15.heightBox,
-                      "No Journals 🥲 😞".text.xl4.red400.bold.makeCentered(),
-                    ],
+                  EmptyHolderWidget(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => AddJournalPage(
+                                    journalNotifier: journalNotifier,
+                                  )));
+                    },
+                    buttonTitle: "Add Journal",
+                    title: 'No Journals 🥲 😞',
                   )
                 else
                   StaggeredGrid.count(

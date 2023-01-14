@@ -73,10 +73,10 @@ class HomePage extends StatelessWidget {
               ),
             ],
           ),
-          floatingActionButton: FloatingActionButton(
-            onPressed: () {},
-            child: const Icon(Icons.add),
-          ),
+          // floatingActionButton: FloatingActionButton(
+          //   onPressed: () {},
+          //   child: const Icon(Icons.add),
+          // ),
           body:
               homePageNotifier.screens[homePageNotifier.currentNavigatonIndex],
         );

@@ -1,6 +1,3 @@
-// To parse this JSON data, do
-//
-
 import 'dart:convert';
 
 class TipsTricksModel {
