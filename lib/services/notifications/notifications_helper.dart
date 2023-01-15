@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:timezone/data/latest.dart' as tz;
 import 'package:timezone/timezone.dart' as tz;
@@ -43,6 +45,23 @@ class NotificationApi {
     );
   }
 
+  static Future<void> cancelNotification(int id) async {
+    await notifications.cancel(id);
+  }
+
+  static Future<void> cancelAllNotifications() async {
+    await notifications.cancelAll();
+  }
+
+  static Future<NotificationAppLaunchDetails?>
+      getNotificationDetailById() async {
+    return await notifications.getNotificationAppLaunchDetails();
+  }
+
+  static Future<List<PendingNotificationRequest>> allNotifications() async {
+    return await notifications.pendingNotificationRequests();
+  }
+
   static Future shownotification(
       {int id = 0, String? title, String? body, String? payload}) async {
     notifications.show(
@@ -67,21 +86,25 @@ class NotificationApi {
       required String desc,
       required String title,
       required String time}) async {
-    notifications = FlutterLocalNotificationsPlugin();
-    await notifications.initialize(initializationSettings,
-        onSelectNotification: (String? payload) async {
-      if (payload != null) {}
-      //
-    });
-    await notifications.zonedSchedule(
-        taskChannelId ?? 0,
-        title,
-        desc,
-        tz.TZDateTime.from(scheduleDate, tz.local),
-        await _notificationDetails(taskChannelId),
-        androidAllowWhileIdle: true,
-        uiLocalNotificationDateInterpretation:
-            UILocalNotificationDateInterpretation.absoluteTime,
-        matchDateTimeComponents: DateTimeComponents.time);
+    try {
+      notifications = FlutterLocalNotificationsPlugin();
+      await notifications.initialize(initializationSettings,
+          onSelectNotification: (String? payload) async {
+        if (payload != null) {}
+        //
+      });
+      await notifications.zonedSchedule(
+          taskChannelId ?? Random().nextInt(10000),
+          title,
+          desc,
+          tz.TZDateTime.from(scheduleDate, tz.local),
+          await _notificationDetails(taskChannelId),
+          androidAllowWhileIdle: true,
+          uiLocalNotificationDateInterpretation:
+              UILocalNotificationDateInterpretation.absoluteTime,
+          matchDateTimeComponents: DateTimeComponents.time);
+    } catch (e) {
+      print("error in schedule notification $e");
+    }
   }
 }

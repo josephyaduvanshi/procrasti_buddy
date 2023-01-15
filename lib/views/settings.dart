@@ -37,24 +37,24 @@ class SettingsPage extends StatelessWidget {
                 ],
               ).p(8).p(7),
             ).py(12).px(5),
-            SettingItemsCard(
-              onTap: () {},
-              title: "Appearance",
-              subtitle: "Change Theme",
-              icon: Icons.color_lens_outlined,
-            ),
-            SettingItemsCard(
-              onTap: () {},
-              title: "Notifications",
-              subtitle: "Turn On/Off Notifications",
-              icon: Icons.notifications_none_outlined,
-            ),
+            // SettingItemsCard(
+            //   onTap: () {},
+            //   title: "Appearance",
+            //   subtitle: "Change Theme",
+            //   icon: Icons.color_lens_outlined,
+            // ),
+            // SettingItemsCard(
+            //   onTap: () {},
+            //   title: "Notifications",
+            //   subtitle: "Turn On/Off Notifications",
+            //   icon: Icons.notifications_none_outlined,
+            // ),
             SettingItemsCard(
               title: "Backup/Restore",
               subtitle: "Backup/Restore your data",
               icon: Icons.backup_outlined,
               onTap: () {},
-            ),
+            ).disabled(true),
             SettingItemsCard(
               title: "App Version",
               subtitle: "Version: 1.1.0",

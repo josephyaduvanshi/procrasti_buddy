@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:procrasti_buddy/controllers/homepage_controller.dart';
+import 'package:procrasti_buddy/services/notifications/notification_page.dart';
 import 'package:provider/provider.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -47,9 +48,14 @@ class HomePage extends StatelessWidget {
                 },
               ),
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const NotificationPage()));
+                },
                 icon: const Icon(Icons.notifications_active_outlined),
-              ),
+              ).disabled(true),
               PopupMenuButton(
                 enableFeedback: true,
                 icon: const Icon(Icons.more_vert_rounded),

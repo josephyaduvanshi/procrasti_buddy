@@ -6,7 +6,6 @@ import 'package:hive/hive.dart';
 import 'package:intl/intl.dart';
 import 'package:procrasti_buddy/database/task_manager/task_manager.dart';
 import 'package:procrasti_buddy/models/choice_chip_model.dart';
-import 'package:procrasti_buddy/services/notifications/notification_service.dart';
 import 'package:procrasti_buddy/services/notifications/notifications_helper.dart';
 import 'package:procrasti_buddy/utils/snackbar.dart';
 
