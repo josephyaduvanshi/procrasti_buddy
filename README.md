@@ -108,7 +108,6 @@ always looking for ways to improve the app to better meet the needs of its users
 suggestions. I'm glad I was able to turn my own struggle with procrastination into something beneficial and helpful for
 others. You'll be able to say goodbye to procrastination and hello to productivity, a happier, more successful life, and
 Procrasti Buddy by your side.
----
 
 ## Built With
 
