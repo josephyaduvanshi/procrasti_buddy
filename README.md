@@ -48,7 +48,7 @@ scheduling, bill and payment reminders, and task management. But I didn't stop t
 users can interact with to ask for productivity tips and advice on various aspects of their work and personal life. I
 wanted to create an app that not only provides the tools for productivity but also the guidance and support users need
 to develop the right mindset to overcome procrastination.
----
+
 ## How I built it
 
 ### Folder Structure
@@ -63,13 +63,13 @@ productivity app. Because of this, I decided to build Procrasti Buddy with the F
 programming
 language so that it could run on both Android and iOS devices. I wanted to create an app that was not only useful but
 also visually appealing, simple to use, and customizable to the needs of the user.
----
+
 ## Challenges I ran into
 
 The Somewhat of challenge I faced was integrating the NLP AI bot into the app with voice features and all. I had to
 learn how to use the OPEN API and integrate it with the app. I also had to learn how to use the Hive database to store
 the user's data locally so that it could be accessed even when offline.
----
+
 ## Accomplishments that I'm proud of
 
 The finished product that I have created makes me extremely proud. Especially in just Four days of development.
@@ -77,7 +77,7 @@ ProcrastiBuddy is more than just an app; it is a productivity companion that ena
 more effectively and increase their productivity. The best part is that there are no advertisements at all! It is made
 to comprehend the user's issue and offer the most effective solution. It is a one-stop solution for all your
 productivity needs.
----
+
 ## What I learned
 
 During the development process of Procrasti Buddy, I learned several important things. One of the most significant
@@ -98,7 +98,7 @@ mind and a good amount of hard work and determination, I can achieve anything I 
 Overall, the development process of Procrasti Buddy was a challenging but rewarding experience. I learned a lot of
 valuable skills and gained a deeper understanding of how to build an app that truly stands out in the crowded world of
 productivity apps.
----
+
 ## What's next for Procrasti Buddy
 
 The next step for Procrasti Buddy is to add more features to the app. I plan to add a shopping list feature, a calendar
@@ -109,13 +109,16 @@ suggestions. I'm glad I was able to turn my own struggle with procrastination in
 others. You'll be able to say goodbye to procrastination and hello to productivity, a happier, more successful life, and
 Procrasti Buddy by your side.
 ---
+
 ## Built With
 
 - Flutter
 - Dart
 - Hive
 - Openai
+
 ---
+
 # Features
 
 - [x] Pomodoro Timer
