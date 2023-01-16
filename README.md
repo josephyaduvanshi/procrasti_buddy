@@ -10,7 +10,7 @@ Procrasti Buddy!
 
 ---
 
-[![Procrasti Buddy Carousel](https://i.imgur.com/Uhs6ycb.png)](https://josephyaduvanshi.github.io/procrasti-buddy-carousel/index.html)
+[![Procrasti Buddy Carousel](https://i.imgur.com/Uhs6ycb.png)](https://josephyaduvanshi.github.io/procrasti-buddy-carousel/index.html) 
 
 ### [Click Here to view the carousel](https://josephyaduvanshi.github.io/procrasti-buddy-carousel/index.html)
 
@@ -142,7 +142,7 @@ Procrasti Buddy by your side.
 
 ## Pomodoro Timer
 
-[![Pomodoro Timer](https://i.imgur.com/wIGP8gS.png)](https://i.imgur.com/wIGP8gS.png)
+<img src="https://i.imgur.com/wIGP8gS.png" align = "center" height = "550px" alt="Pomodoro">
 
 The Pomodoro Technique is a time management method that uses a timer to break down work into intervals, traditionally
 25 minutes in length, separated by short breaks. Each interval is known as a Pomodoro, from the Italian word for
@@ -153,21 +153,24 @@ programming contexts.
 
 ## Appointment Scheduling
 
-[![Appointment Scheduling](https://i.imgur.com/N1EO3OA.png)](https://i.imgur.com/N1EO3OA.png)
+[//]: # ([![Appointment Scheduling]&#40;https://i.imgur.com/N1EO3OA.png&#41;]&#40;https://i.imgur.com/N1EO3OA.png&#41;)
+<img src="https://i.imgur.com/N1EO3OA.png" align = "center" height = "500px" alt="Pomodoro">
 
 The appointment scheduling feature allows users to schedule appointments and set reminders for them. Users can also
 view their appointments in a calendar view.
 
 ## Bill and Payment Reminders
 
-[![Bill and Payment Reminders](https://i.imgur.com/Vnb0kVi.png)](https://i.imgur.com/Vnb0kVi.png)
+[//]: # ([![Bill and Payment Reminders]&#40;https://i.imgur.com/Vnb0kVi.png&#41;]&#40;https://i.imgur.com/Vnb0kVi.png&#41;)
+<img src="https://i.imgur.com/Vnb0kVi.png" align = "center" height = "500px" alt="Pomodoro">
 
 The bill and payment reminders feature allows users to set reminders for their bills and payments. Users can also view
 their bills and payments in a calendar view.
 
 ## Journal
 
-[![Journal](https://i.imgur.com/5wdRJ5M.png)](https://i.imgur.com/5wdRJ5M.png)
+[//]: # ([![Journal]&#40;https://i.imgur.com/5wdRJ5M.png&#41;]&#40;https://i.imgur.com/5wdRJ5M.png&#41;)
+<img src="https://i.imgur.com/5wdRJ5M.png" align = "center" height = "500px" alt="Pomodoro">
 
 The journal feature allows users to write down their thoughts and feelings.The list view allows users to view their
 journal entries in a
@@ -175,7 +178,8 @@ list format.
 
 ## Procrasti Buddy AI Bot
 
-[![Procrasti Buddy AI Bot](https://i.imgur.com/x9MWvOS.png)](https://i.imgur.com/x9MWvOS.png)
+[//]: # ([![Procrasti Buddy AI Bot]&#40;https://i.imgur.com/x9MWvOS.png&#41;]&#40;https://i.imgur.com/x9MWvOS.png&#41;)
+<img src="https://i.imgur.com/x9MWvOS.png" align = "center" height = "500px" alt="Pomodoro">
 
 The Procrasti Buddy AI bot is a conversational AI bot that helps users to manage their daily tasks more effectively
 and increase their productivity. The Procrasti Buddy AI bot is designed to understand the user's problem and give the
