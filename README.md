@@ -238,5 +238,5 @@ If you considered this project useful, please consider giving it a :star: on Git
 
 ## Copyright-and-license
 
-Code and documentation Copyright 2022 [Joseph Yaduvanshi](https://github.com/josephyaduvanshi). Code released under
+Code and documentation Copyright 2023 [Joseph Yaduvanshi](https://github.com/josephyaduvanshi). Code released under
 the [Apache License](./LICENSE). Docs released under [Creative Commons](https://creativecommons.org/licenses/by/3.0/).
