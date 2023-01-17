@@ -12,7 +12,7 @@ Procrasti Buddy!
 
 [![Procrasti Buddy Carousel](https://i.imgur.com/Uhs6ycb.png)](https://josephyaduvanshi.github.io/procrasti-buddy-carousel/index.html) 
 
-### [Click Here to view the carousel](https://josephyaduvanshi.github.io/procrasti-buddy-carousel/index.html)
+### [Click Here to view the carousel](https://josephyaduvanshi.github.io/josef_gh_pages/index.html)
 
 ---
 
