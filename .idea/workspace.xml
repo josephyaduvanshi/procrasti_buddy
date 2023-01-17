@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7e16618e-8e18-40dd-a87c-ed3fa1942117" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/views/menu/pages/pomodoro_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/menu/pages/pomodoro_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/procrasti_buddy.iml" beforeDir="false" afterPath="$PROJECT_DIR$/procrasti_buddy.iml" afterDir="false" />
-    </list>
+    <list default="true" id="7e16618e-8e18-40dd-a87c-ed3fa1942117" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,6 +31,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -54,6 +50,7 @@
       <option name="presentableId" value="Default" />
       <updated>1673853519321</updated>
       <workItem from="1673853522389" duration="10056000" />
+      <workItem from="1673868030215" duration="1659000" />
     </task>
     <servers />
   </component>
